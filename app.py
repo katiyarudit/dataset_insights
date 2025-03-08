@@ -24,8 +24,37 @@ if uploaded_file:
     st.pyplot(plot_missing_values(df))
 
     st.write("### 🔄 Correlation Heatmap")
-    st.pyplot(plot_correlation(df))
+    heatmap_fig = plot_correlation(df)
+    if heatmap_fig:
+        st.pyplot(heatmap_fig)
+    else:
+        st.warning("No numeric columns available for correlation heatmap.")
 
     st.write("### 📈 Feature Distributions")
     for fig in plot_distributions(df):
         st.plotly_chart(fig)
+
+# Add About Me Section
+st.sidebar.title("ℹ️ About This App")
+st.sidebar.info(
+    "This is an **Automated EDA & Insights App** that helps users quickly analyze datasets. "
+    "It supports **advanced visualizations, missing values analysis, and dark/light mode customization.** "
+    "Built with **Streamlit, Pandas, Matplotlib, and Plotly**."
+)
+st.sidebar.title("👨‍💻 About Me")
+st.sidebar.info(
+    "**Udit Katiyar**\n\n"
+    "🚀 **Computer Science Engineer | Tech Enthusiast**\n\n"
+    "💡 Passionate about **Web Development, AI/ML, and Open-Source Contributions**\n\n"
+    "📝 Sharing thoughts on **cutting-edge technologies, problem-solving, and innovation**\n\n"
+    "📚 Exploring **Cloud Computing, DevOps, and Blockchain**\n\n"
+    "🔥 Always eager to learn and build amazing projects!"
+)
+
+st.sidebar.title("📢 Contact Me")
+st.sidebar.info(
+    "📧 **Email:** [uditkatiyar2005@gmail.com](mailto:uditkatiyar2005@gmail.com)\n"
+    "🔗 **GitHub:** [github.com/katiyarudit](https://github.com/katiyarudit)\n"
+    "💼 **LinkedIn:** [linkedin.com/in/udit1105](https://www.linkedin.com/in/udit1105/)(https://linkedin.com/in/udit-katiyar)\n"
+    "📝 **Blog:** [Your Blog Link](https://yourblog.com)"
+)
