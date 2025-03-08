@@ -31,8 +31,9 @@ if uploaded_file:
         st.warning("No numeric columns available for correlation heatmap.")
 
     st.write("### 📈 Feature Distributions")
-    for fig in plot_distributions(df):
-        st.plotly_chart(fig)
+    fig = plot_distributions(df)
+
+    st.plotly_chart(fig)
 
 # Add About Me Section
 st.sidebar.title("ℹ️ About This App")
